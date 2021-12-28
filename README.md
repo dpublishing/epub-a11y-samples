@@ -1,3 +1,7 @@
+- 下載[範本EPUB檔案](https://github.com/dpublishing/epub_a11y_sample/raw/main/a11y_pamphelet.epub)
+- 可使用DAISY提供的[ACE檢查器](https://daisy.github.io/ace/getting-started/ace-app/#where-can-i-download-the-ace-app)開啟檢視
+- ACE檢查器中文化已經完成，待受DAISY正式採用後新版即會支援中文
+
 # 數位出版中的Accessibility
 
 ### Accessibility的翻譯與定義
