@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package
+ xmlns="http://www.idpf.org/2007/opf"
+ version="3.0"
+ xml:lang="zh-TW"
+ unique-identifier="unique-id"
+ prefix="ibooks: http://vocabulary.itunes.apple.com/rdf/ibooks/vocabulary-extensions-1.0/ 
+         rendition: http://www.idpf.org/vocab/rendition/# 
+         a11y: http://www.idpf.org/epub/vocab/package/a11y/#">
+
+<metadata xmlns:dc="http://purl.org/dc/elements/1.1/">
+
+<!-- 作品名 -->
+<dc:title id="title">EPUB無障礙輔助性讀本兼範本</dc:title>
+
+<!-- 作者名 -->
+<dc:creator id="creator01">董福興</dc:creator>
+<meta refines="#creator01" property="role" scheme="marc:relators">aut</meta>
+<meta refines="#creator01" property="display-seq">1</meta>
+
+<!-- 出版社名 -->
+<dc:publisher id="publisher">台灣數位出版聯盟</dc:publisher>
+
+<!-- 語言 -->
+<dc:language>zh-TW</dc:language>
+
+<!-- 檔案id -->
+<dc:identifier id="unique-id">urn:uuid:d7a8d311-7cd0-40df-9443-65847561dec2</dc:identifier>
+
+<!-- 更新時間 -->
+<meta property="dcterms:modified">2021-12-29T00:00:00Z</meta>
+
+<!-- iBook指定字體 -->
+<meta property="ibooks:specified-fonts">true</meta>
+
+<!-- 無障礙輔助詮釋資料 -->
+<!-- 包含文字與圖片，所以存取模式為文字與視覺 -->
+    <meta property="schema:accessMode">textual</meta>
+    <meta property="schema:accessMode">visual</meta> 
+<!-- 圖片具有替代文字、具結構性導覽無障礙功能 -->
+    <meta property="schema:accessibilityFeature">alternativeText</meta>
+    <meta property="schema:accessibilityFeature">structuralNavigation</meta>
+<!-- 不具任何無障礙危害 -->
+    <meta property="schema:accessibilityHazard">none</meta>
+<!-- 無障礙輔助性摘要 -->
+    <meta property="schema:accessibilitySummary" xml:lang="zh-TW">本出版品符合WCAG 2.1 A等級</meta>
+<!-- 內容由文字與圖片構成，所以充要存取模式為textual, visual，圖片擁有替代文字，所以也可以textual閱讀 -->
+    <meta property="schema:accessModeSufficient">textual,visual</meta>
+    <meta property="schema:accessModeSufficient">textual</meta>
+<!-- 無障礙認證資料，符合EPUB無障礙輔助性1.1規格，以及WCAG2.1 A等級 -->
+    <meta property="dcterms:conformsTo" id="conf">EPUB-A11Y-11_WCAG-21-A</meta>
+<!-- 由台灣數位出版聯盟所進行無障礙輔助性檢查 -->
+    <meta property="a11y:certifiedBy" id="certifier">Taiwan Digital Publishing Forum</meta>
+<!-- 進行檢查的日期 -->
+    <meta property="dcterms:date" refines="#certifier">2021-12-29</meta>
+<!-- 提供一項認證，本認證僅供範本示範 -->
+    <meta property="a11y:certifierCredential">符合A級無障礙輔助性評比</meta>
+<!-- 提供一份報告，僅供範本示範，連結會回到本書提供github repo -->
+    <link rel="a11y:certifierReport" href="https://github.com/dpublishing/epub_a11y_sample" />
+
+</metadata>
+
+<manifest>
+
+<!-- navigation -->
+<item media-type="application/xhtml+xml" id="toc" href="navigation-documents.xhtml" properties="nav"/>
+
+<!-- style -->
+<item media-type="text/css" id="book-style"     href="style/book-style.css"/>
+<item media-type="text/css" id="style-reset"    href="style/style-reset.css"/>
+<item media-type="text/css" id="style-standard" href="style/style-standard.css"/>
+<item media-type="text/css" id="style-advance"  href="style/style-advance.css"/>
+<item media-type="text/css" id="style-check"    href="style/style-check.css"/>
+
+<!-- image -->
+<item media-type="image/jpeg" id="cover"      href="image/cover.jpg" properties="cover-image"/>
+<item media-type="image/png" id="tdpf"      href="image/tdpf.png" />
+<item media-type="image/png" id="moc"      href="image/moc.png" />
+<item media-type="image/png" id="_01"      href="image/01.png" />
+<item media-type="image/png" id="_02"      href="image/02.png" />
+
+
+<!-- xhtml -->
+<item media-type="application/xhtml+xml" id="p-cover"       href="xhtml/p-cover.xhtml" properties="svg"/>
+<item media-type="application/xhtml+xml" id="p-titlepage"   href="xhtml/p-titlepage.xhtml"/>
+<item media-type="application/xhtml+xml" id="p-toc"         href="xhtml/p-toc.xhtml"/>
+<item media-type="application/xhtml+xml" id="p-001"         href="xhtml/p-001.xhtml"/>
+<item media-type="application/xhtml+xml" id="p-002"         href="xhtml/p-002.xhtml"/>
+<item media-type="application/xhtml+xml" id="p-003"         href="xhtml/p-003.xhtml"/>
+<item media-type="application/xhtml+xml" id="p-004"         href="xhtml/p-004.xhtml"/>
+<item media-type="application/xhtml+xml" id="p-005"         href="xhtml/p-005.xhtml"/>
+<item media-type="application/xhtml+xml" id="p-006"         href="xhtml/p-006.xhtml"/>
+
+<item media-type="application/xhtml+xml" id="p-colophon"    href="xhtml/p-colophon.xhtml"/>
+
+<!-- font -->
+
+</manifest>
+
+<spine page-progression-direction="ltr">
+<itemref linear="yes" idref="p-cover"       properties="rendition:layout-pre-paginated 
+													    rendition:spread-none 
+													    rendition:page-spread-center"/>
+<itemref linear="yes" idref="p-titlepage"   properties="page-spread-left"/>
+<itemref linear="yes" idref="p-toc"         properties="page-spread-left"/>
+<itemref linear="yes" idref="p-001"         properties="page-spread-left"/>
+<itemref linear="yes" idref="p-002"         properties="page-spread-left"/>
+<itemref linear="yes" idref="p-003"         properties="page-spread-left"/>
+<itemref linear="yes" idref="p-004"         properties="page-spread-left"/>
+<itemref linear="yes" idref="p-005"         properties="page-spread-left"/>
+<itemref linear="yes" idref="p-006"         properties="page-spread-left"/>
+<itemref linear="yes" idref="p-colophon"    properties="page-spread-left"/>
+
+</spine>
+
+</package>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html
+ xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:epub="http://www.idpf.org/2007/ops"
+ xml:lang="zh-TW" lang="zh-TW"
+ class="hltr"
+>
+<head>
+<meta charset="UTF-8"/>
+<title>EPUB無障礙輔助性讀本兼範本</title>
+<link rel="stylesheet" type="text/css" href="../style/book-style.css"/>
+</head>
+<body class="p-text">
+<div class="main">
+        <h2 id="toc_index_1">EPUB特有的規定</h2>
+
+<p>請參考EPUB無障礙輔助性1.1的<a href="https://dpublishing.github.io/epub-a11y-tc/epub-a11y-11.html#sec-epub-req">3.4EPUB規定</a>，主要分為兩項，分別在具備以下功能時：</p>
+
+<ul>
+<li>具有對應印刷書頁碼的頁面列表（page-list）；</li>
+<li>具有文字與聲音同步播放的媒體覆蓋（media overlay）。</li>
+</ul>
+
+<h3 id="toc_index_2">印刷書頁碼的頁面列表</h3>
+
+<p>建議提供完整的印刷書頁碼，包括空白頁在內。同時需要在詮釋資料中識別分頁點來源，是來自何ISBN與版次資訊等，以能和正確的印刷書對應。</p>
+
+<h3 id="toc_index_3">更便利的媒體覆蓋</h3>
+
+<p>除了確保全文，包括導覽文件都具有對應的語音外，朗讀順序也要和閱讀順序一致。同時對於表格和註解等內容，要在smil文件中標註語意，如<code>pagebreak</code>、<code>table</code>、<code>list</code>等，這樣處理時可以讓使用者決定要不要跳過（Skip）或者跳出（Escape）這些會干涉閱讀或者花時間的內容。</p>
+</div>
+    </body>
+</html>

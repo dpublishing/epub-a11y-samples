@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html
+ xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:epub="http://www.idpf.org/2007/ops"
+ xml:lang="zh-TW" lang="zh-TW"
+ class="hltr"
+>
+<head>
+<meta charset="UTF-8"/>
+<title>EPUB無障礙輔助性讀本兼範本</title>
+<link rel="stylesheet" type="text/css" href="../style/book-style.css"/>
+</head>
+<body class="p-text">
+<div class="main">
+        <h2 id="toc_index_1">內容須符合WCAG</h2>
+
+<p>請參考NCC的<a href="https://accessibility.ncc.gov.tw/Home/Info">無障礙規範索引</a>，在EPUB中，主要需要符合的要點為：</p>
+
+<ul>
+<li><a href="https://accessibility.ncc.gov.tw/Accessible/Detail/4460?Category=68#指引1.1">替代文字</a>：圖片需要在alt標籤中填入文字，盡量不要用圖片來呈現文字。</li>
+<li><a href="https://accessibility.ncc.gov.tw/Accessible/Detail/4460?Category=68#指引1.3">可調適</a>：內容結構要使用正確的<code>html</code>標籤，標題使用<code>&lt;h1&gt;~&lt;h6&gt;</code> 段落使用 <code>&lt;p&gt;</code>等。</li>
+</ul>
+
+<p>以外需注意事項，可參考EPUB無障礙輔助性技巧1.1的<a href="https://dpublishing.github.io/epub-a11y-tc/epub-a11y-tech-11.html#sec-wcag">4.WCAG技巧</a></p>
+
+<p>特別需要注意的建議事項有：</p>
+
+<ul>
+<li>遵從EPUB規定，所有EPUB內容文件都要在書脊之中；以及</li>
+<li>非線性閱讀的文件都要有辦法被存取。</li>
+<li>每一份在書脊中的內容文件，在目錄中都要至少有一個連結。</li>
+<li>為圖片與表格在目錄中製作一份輔助導覽。</li>
+<li>在內容文件於目錄中至少有一個連結的狀況下，可以在目錄中適當隱藏/刪除一定層級以下的標題。</li>
+<li>EPUB內容文件在書脊中的順序，與在目錄中的順序一致。</li>
+<li>在EPUB 3的導覽文件中，使用<code>landmarks</code>建立內容地標（如前言frontmatter、本文bodymatter、參考書目bibliography等）的連結。</li>
+</ul>
+</div>
+    </body>
+</html>

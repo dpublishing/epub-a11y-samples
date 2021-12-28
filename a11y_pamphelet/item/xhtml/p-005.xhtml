@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html
+ xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:epub="http://www.idpf.org/2007/ops"
+ xml:lang="zh-TW" lang="zh-TW"
+ class="hltr"
+>
+<head>
+<meta charset="UTF-8"/>
+<title>EPUB無障礙輔助性讀本兼範本</title>
+<link rel="stylesheet" type="text/css" href="../style/book-style.css"/>
+</head>
+<body class="p-text">
+<div class="main">
+        <h2 id="toc_index_1">認證與檢驗</h2>
+
+<h3 id="toc_index_2">合規宣告</h3>
+
+<p>在規格中，提供了詮釋資料規格，讓EPUB可以經由製作者或者第三方認證，確保符合WCAG的哪一等級（A等級或者AA等級）；以及是否合乎EPUB無障礙輔助性規格（目前為1.1版）。可以在<code>metadata</code>中以<code>meta</code>元素特性<code>dcterms:conformsTo</code>來宣告符合哪一等級的規格。</p>
+
+<p>範例為：</p>
+
+<pre><code><br/>&lt;package …&gt;
+   &lt;metadata&gt;
+      …
+      &lt;meta 
+          property="dcterms:conformsTo"
+          id="conf"&gt;
+         EPUB-A11Y-11_WCAG-21-AA
+      &lt;/meta&gt;
+      …
+   &lt;/metadata&gt;
+   …
+&lt;/package&gt;
+
+</code></pre>
+
+<p>符合的規格如下：</p>
+
+<ul>
+<li><p>EPUB-A11Y-11_WCAG-20-A</p></li>
+<li><p>EPUB-A11Y-11_WCAG-20-AA</p></li>
+<li><p>EPUB-A11Y-11_WCAG-20-AAA</p></li>
+<li><p>EPUB-A11Y-11_WCAG-21-A</p></li>
+<li><p>EPUB-A11Y-11_WCAG-21-AA</p></li>
+<li><p>EPUB-A11Y-11_WCAG-21-AAA</p></li>
+</ul>
+
+<h3 id="toc_index_3">認證者資訊</h3>
+
+<p>同時可以透過<code>meta</code>元素特性<code>a11y:certifiedBy</code>加入由誰認證。</p>
+
+<p>範例為：</p>
+
+<pre><code><br/>&lt;metadata&gt;
+  …
+  &lt;meta
+      property="dcterms:conformsTo"
+      id="conf"&gt;
+     EPUB-A11Y-11_WCAG-21-AA
+  &lt;/meta&gt;
+  &lt;meta
+      property="a11y:certifiedBy"
+      refines="#conf"&gt;
+     Acme Publishing Inc.
+  &lt;/meta&gt;
+  …
+&lt;/metadata&gt;
+
+</code></pre>
+
+<p>以及認證日期，需使用id來進行連結，範例為：</p>
+
+<pre><code><br/>&lt;meta
+    property="a11y:certifiedBy"
+    id="certifier"&gt;
+   EPUB Accessibility Evaluator
+&lt;/meta&gt;
+&lt;meta
+    property="dcterms:date"
+    refines="#certifier"&gt;
+   2021-09-07
+&lt;/meta&gt;
+
+</code></pre>
+
+<p>若提供認證標章或者數位憑證，可以使用<code>a11y:certifierCredential</code>來產生關聯，範例為：</p>
+
+<pre><code><br/>&lt;meta
+    property="dcterms:conformsTo"
+    id="conf"&gt;
+   EPUB-A11Y-11_WCAG-21-AA
+&lt;/meta&gt;
+&lt;meta
+    property="a11y:certifiedBy"
+    refines="#conf"
+    id="certifier"&gt;
+   EPUB Accessibility Evaluator
+&lt;/meta&gt;
+&lt;meta
+    property="a11y:certifierCredential"
+    refines="#certifier"&gt;
+   A+ Accessibility Rating
+&lt;/meta&gt;
+
+</code></pre>
+
+<p>若在網站上有提供檢查報告，可以透過<code>a11y:certifierReport</code>來提供連結，範例為：</p>
+
+<pre><code><br/>&lt;meta
+    property="dcterms:conformsTo"
+    id="conf"&gt;
+   EPUB-A11Y-11_WCAG-21-AA
+&lt;/meta&gt;
+&lt;meta
+    property="a11y:certifiedBy"
+    refines="#conf"
+    id="certifier"&gt;
+   EPUB Accessibility Evaluator
+&lt;/meta&gt;
+&lt;link
+    rel="a11y:certifierReport"
+    refines="#certifier"
+    href="http://www.example.com/a11y/report/9780000000001"/&gt;
+
+</code></pre>
+</div>
+    </body>
+</html>
