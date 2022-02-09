@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html
+ xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:epub="http://www.idpf.org/2007/ops"
+ xml:lang="zh-TW" lang="zh-TW"
+ class="hltr"
+>
+<head>
+<meta charset="UTF-8"/>
+<title>EPUB無障礙輔助性負面範本</title>
+<link rel="stylesheet" type="text/css" href="../style/book-style.css"/>
+</head>
+<body class="p-text">
+<div class="main">
+        <h2 id="toc_index_1">範本說明</h2>
+
+
+<p>本範本為EPUB無障礙輔助性負面範本。</p>
+
+<p>EPUB無障礙輔助性主要可透過Daisy Consortium提供的<a href="https://daisy.github.io/ace/">ACE檢測工具</a>來進行檢查。另一份讀本與範本，符合了所規定的所有項目，不僅沒有錯誤，本身也符合WCAG A等級。</p>
+
+<p>而本範本為負面範例，違反了所有可能違反的規則。</p>
+
+<p>以下是錯誤說明：</p>
+
+<h3>EPUB規則</h3>
+
+<p>共有五項。</p>
+
+<h4>epub-pagesource</h4>
+
+<p>當電子書內具有印刷書分頁標記時，並且在目錄中有頁面列表時，需要在包裝文件中以<code>dc:source</code>指出印刷書來源，如包含ISBN等資訊。</p>
+
+<p>本範本不具備印刷版本，所以在例文中加入假的分頁標記，並且在目錄（navigation-documents.xhtml）中加入了假的頁面列表（<code>&lt;nav epub:type=&quot;page-list&quot;&gt;</code>）。但在包裝文件（standard.opf）中，沒有包含<code>dc:source</code>元素，所以會被ACE檢驗出錯誤。</p>
+
+<h4>epub-title</h4>
+
+<p>EPUB的包裝文件中，必需要有<code>&lt;dc:title&gt;</code>。</p>
+
+<p>若沒有<code>&lt;dc:title&gt;</code>，會被EPUB檢驗工具認為是重大錯誤。所以本範本包含該元素，但為空白。所以會被ACE檢驗出錯誤。</p>
+
+<h4>epub-type-has-matching-role</h4>
+
+<p>過往EPUB的無障礙輔助仰賴<code>epub-type</code>屬性，但新版本轉型推薦使用HTML的ARIA Role作為輔助，兩者有一份對應表，若彼此不相符合，則會被認為錯誤。</p>
+
+<p>本書目錄頁中的<code>&lt;nav epub:type=&quot;toc&quot;&gt;</code>其對應的ARIA Role應為<code>doc-toc</code>，但本範本改為<code>doc-cover</code>，不符合，所以會被ACE檢驗出錯誤。</p>
+
+<h4>metadata-*</h4>
+
+<p>在EPUB的包裝文件中，應該包含各種無障礙詮釋資料。</p>
+
+<p>本範本不包含任何無障礙詮釋資料，所以會被ACE檢驗出錯誤。</p>
+
+<h4>pagebreak-label</h4>
+
+<p>在電子書內容文件中標註印刷書的分頁點，需要按照以下格式：</p>
+
+<pre><code>
+    &lt;div role="doc-pagebreak" aria-label="page 24" id="pg24"&gt;24&lt;/div>"&gt;&lt;span role=&quot;doc-pagebreak&quot; aria-label=&quot;page 24&quot; id=&quot;pg24&quot;&gt;&lt;/span&gt;
+</code></pre>
+
+<p>其中如果<code>aria-label</code>沒有內容，就會被視為錯誤。本書的第六頁為空白，所以會被ACE檢驗出錯誤。</p>
+
+<pre><code>&lt;span role="doc-pagebreak" aria-label="" id="p6" &gt;6&lt;/span>&gt;</code></pre>
+
+<h3>HTML規則</h3>
+
+<p>HTML規則中有許多是來自網站結構，如role的結構與不得相互包含等，較不適用於EPUB，就不進行展示。</p>
+
+<h4>accesskeys</h4>
+
+<p><code>Accesskeys</code>是一項HTML屬性，可以設定鍵盤快速鍵跳到有該屬性的元素。每一個<code>Accesskeys</code>的值不得相同。</p>
+
+<p>本範本中例文各中標都有設定<code>Accesskeys</code>，最後一個標題與第一個標題的值都為1，所以會被ACE檢驗出錯誤。</p>
+
+<h4>aria-allowed-role</h4>
+
+<p>ARIA Role需要套用到能對應的元素上頭。</p>
+
+<p>本範本中<code>&lt;nav epub:type=&quot;toc&quot;&gt;</code>的<code>role</code>誤植為<code>doc-cover</code>，該值僅能套用在圖片元素，如<code>&lt;img&gt;</code>上，所以會被ACE檢驗出錯誤。</p>
+
+<h4>aria-dialog-name</h4>
+
+<p>Aria role的<code>dialog</code>與<code>alert dialog</code>節點都要有一個無障礙名稱。</p>
+
+<p><code>dialog</code>主要應用於互動性內容，如表單，本範本不示範該錯誤。</p>
+
+<h4>aria-text</h4>
+
+<p>若一個元素使用了<code>role=text</code>，其中就不能夠有可成為焦點的子元素。</p>
+
+<p>本範本例文中倒數第五段「如同前述，目前台灣是由NCC主管此項業務……」在<code>&lt;p&gt;</code>元素中指定了<code>role=text</code>，但該段落包括了具有<code>href</code>的<code>&lt;a&gt;</code>元素，為可以成為焦點的元素，所以違反此項規則，會被ACE檢驗出錯誤。</p>
+
+<h4>aria-treeitem-name</h4>
+
+<p>Aria每一個<code>treeitem</code>節點都要有一個無障礙名稱。</p>
+
+<p><code>treeitem</code>主要應用於互動性列表，可透過鍵盤選擇列表中的節點，本範本不展示該錯誤。</p>
+
+<h4>empty-heading</h4>
+
+<p>每一個標題標籤都要有內容。</p>
+
+<p>本範本例文最後添加了一個沒有內容的<code>&lt;h3 id=&quot;toc_index_9&quot;&gt;&lt;/h3&gt;</code>元素，所以會被ACE檢驗出錯誤。</p>
+
+<h4>epub-type-has-matching-role</h4>
+
+<p>本錯誤與EPUB錯誤相同。</p>
+
+<h4>frame-tested</h4>
+
+<p>確保<code>&lt;iframe&gt;</code>與<code>&lt;frame&gt;</code>元素包含axe-core腳本。</p>
+
+<p>由於這兩項元素可能有安全性問題，且閱讀系統支援較少，本範本不示範該錯誤。</p>
+
+<h4>frame-title-unique</h4>
+
+<p>確保<code>&lt;iframe&gt;</code>與<code>&lt;frame&gt;</code>元素包含獨特的<code>title</code>屬性。</p>
+
+<p>由於這兩項元素可能有安全性問題，且閱讀系統支援較少，本範本不示範該錯誤。</p>
+
+<h4>heading-order</h4>
+
+<p>標題層級應該依順序出現。</p>
+
+<p>本範本書名頁採用<code>&lt;h5&gt;</code>，同時例文中大標題為<code>&lt;h3&gt;</code>，中標題為<code>&lt;h2&gt;</code>，在ACE的Outline中會顯示順序錯誤。</p>
+
+<h4>identical-links-same-purpose</h4>
+
+<p>確保具相同無障礙名稱的連結，目的相同。</p>
+
+<p>連結的<code>&lt;a&gt;</code>元素，可以使用<code>aria-label</code>來給予無障礙名稱，說明其用途，具有相同無障礙名稱的連結，目的需要相同。例如外連到網頁的元素給予特定的<code>aria-label</code>，就不得用在其他用途，如註解連結。</p>
+
+<p>本範本例文將<code>aria-label=&quot;link to the spec&quot;</code>同時套用在對外連結和註解連結上，但ACE並未發現錯誤。</p>
+
+<h4>image-redundant-alt</h4>
+
+<p>當圖片與文字在同一元素中並列時，不需要在圖片的<code>alt</code>中重複文字。</p>
+
+<p>本範本版權頁的「台灣數位出版聯盟」以文字出現，其前的圖片<code>alt</code>也為「台灣數位出版聯盟」，所以會被ACE檢驗出錯誤。</p>
+
+<h4>label-title-only</h4>
+
+<p>確保每一個表單（form）元素不僅單純透過<code>title</code>或<code>aria-describedby</code>屬性添加標籤。</p>
+
+<p>目前在EPUB中表單的支援度不高，本範本不示範該錯誤。</p>
+
+<h4>landmark-banner-is-top-level</h4>
+
+<p>HTML ARIA landmark中的<code>role=&quot;banner&quot;</code>不得被包含在其他ARIA landmark元素中。</p>
+
+<p>由於<code>banner</code>定義上為網頁商標識別，在EPUB中少使用，本範本不示範該錯誤。</p>
+
+<h4>landmark-complementary-is-top-level</h4>
+
+<p>HTML <code>&lt;aside&gt;</code>元素與使用<code>role=&quot;complementary&quot;</code>的元素，不得被包含在其他ARIA landmark元素中。</p>
+
+<p>本範本例文全部使用<code>&lt;main&gt;</code>元素，註解使用<code>&lt;aside&gt;</code>元素並包覆於其中，違反此項規定但不被ACE所檢驗出錯誤。</p>
+
+<h4>landmark-contentinfo-is-top-level</h4>
+
+<p>HTML ARIA landmark <code>role=&quot;complementary&quot;</code>的元素，不得被包含在其他ARIA landmark元素中。</p>
+
+<p>由於<code>complementary</code>定義上為網頁頁尾版權等資訊標示，在EPUB中少使用，本範本不示範該錯誤。</p>
+
+<h4>landmark-main-is-top-level</h4>
+
+<p>HTML ARIA landmark <code>role=&quot;main&quot;</code>的元素，不得被包含在其他ARIA landmark元素中。</p>
+
+<p>本範本不示範該錯誤。</p>
+
+<h4>landmark-no-duplicate-banner</h4>
+
+<p>內容文件中只能有一個HTML ARIA landmark <code>role=&quot;banner&quot;</code>。</p>
+
+<p>本範本不示範該錯誤。</p>
+
+<h4>landmark-no-duplicate-contentinfo</h4>
+
+<p>內容文件中只能有一個HTML ARIA landmark <code>role=&quot;contentinfo&quot;</code>。</p>
+
+<p>本範本不示範該錯誤。</p>
+
+<h4>landmark-no-duplicate-main</h4>
+
+<p>內容文件中只能有一個HTML ARIA landmark <code>role=&quot;main&quot;</code>。</p>
+
+<p>本範本不示範該錯誤。</p>
+
+<h4>landmark-one-main</h4>
+
+<p>內容文件中必需要有一個HTML ARIA landmark <code>role=&quot;main&quot;</code>。</p>
+
+<p>本範本不示範該錯誤。</p>
+
+<h4>landmark-unique</h4>
+
+<p>HTML ARIA role，使用<code>role</code>、<code>label</code>、<code>title</code>的名稱組合不得重複。</p>
+
+<p>本範本不示範該錯誤。</p>
+
+<h4>meta-viewport</h4>
+
+<p>本規則使用於固定版面頁面，在名稱為<code>viewport</code>的<code>&lt;meta&gt;</code>元素中，不得加入<code>user-scalable=no</code>不讓讀者縮放頁面。</p>
+
+<p>本範本封面頁加入此項屬性，所以會被ACE檢驗出錯誤。</p>
+
+<h4>meta-viewport-large</h4>
+
+<p>同上，不加入<code>user-scalable=no</code>外，若有<code>maximum-scale</code>屬性，不得小於5。</p>
+
+<p>本範本不示範該錯誤。</p>
+
+<h4>page-has-heading-one</h4>
+
+<p>確保每一頁至少包含一個<code>&lt;h1&gt;</code>，可以讓無障礙輔助器材跳到第一個標題。</p>
+
+<p>本範本沒有任何<code>&lt;h1&gt;</code>，但沒有被ACE檢驗出錯誤。</p>
+
+<h4>presentation-role-conflict</h4>
+
+<p>當元素使用<code>role=&quot;none&quot;</code>及<code>role=&quot;presentation&quot;</code>時，不能添加其他ARIA屬性，會造成處理上的混淆。</p>
+
+<p>本範本不示範該錯誤。</p>
+
+<h4>region</h4>
+
+<p>所有的內容都應該包含在landmark中，無論是透過HTML元素如<code>&lt;header&gt;</code>、<code>&lt;main&gt;</code>或者ARIA Role如<code>role=&quot;main&quot;</code>、'role=&quot;contentinfo&quot;`。</p>
+
+<p>本範本不示範該錯誤。</p>
+
+<h4>scope-attr-valid</h4>
+
+<p><code>scope</code>為可應用在表格中<code>&lt;th&gt;</code>及<code>&lt;td&gt;</code>元素的屬性，在HTML 5中，僅能用於<code>&lt;th&gt;</code>元素，可使無障礙技術用來進行表格導覽，其值只能使用<code>row</code>或<code>col</code>。應用上不得出錯。</p>
+
+<p>本範本不示範該錯誤。</p>
+
+<h4>skip-link</h4>
+
+<p>網頁中應該具備跳出（skip）連結，並且應該可成為焦點。</p>
+
+<p>本範本不示範該錯誤。</p>
+
+<h4>tabindex</h4>
+
+<p><code>tabindex</code>是使用鍵盤導覽時，使用<code>tab</code>按鍵選擇內容的順序。避免<code>tabindex</code>的值大於0。</p>
+
+<p>本範本不示範該錯誤。</p>
+
+<h4>table-duplicate-name</h4>
+
+<p>兩個表格中的<code>&lt;caption&gt;</code>元素與<code>summary</code>屬性不得為相同。</p>
+
+<p>本範本不示範該錯誤。</p>
+</div>
+    </body>
+</html>
