@@ -1,6 +1,7 @@
 - 下載[範本EPUB檔案](https://github.com/dpublishing/epub-a11y-samples/raw/main/a11y_pamphelet.epub)
 - 可使用DAISY提供的[ACE檢查器](https://daisy.github.io/ace/getting-started/ace-app/#where-can-i-download-the-ace-app)開啟檢視
 - ACE檢查器[中文化](https://github.com/dpublishing/ace)已經完成，待受DAISY正式採用後新版即會支援中文
+- 另提供錯誤的[負面範本](https://github.com/dpublishing/epub-a11y-samples/raw/main/a11y_pamphelet_allerrors.epub)，內有ACE的各種規則說明。
 
 # 數位出版中的Accessibility
 
