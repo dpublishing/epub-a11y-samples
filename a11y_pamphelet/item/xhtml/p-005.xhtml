@@ -17,7 +17,7 @@
 
 <h3 id="toc_index_2">合規宣告</h3>
 
-<p>在規格中，提供了詮釋資料規格，讓EPUB可以經由製作者或者第三方認證，確保符合WCAG的哪一等級（A等級或者AA等級）；以及是否合乎EPUB無障礙輔助性規格（目前為1.1版）。可以在<code>metadata</code>中以<code>meta</code>元素特性<code>dcterms:conformsTo</code>來宣告符合哪一等級的規格。</p>
+<p>在規格中，提供了詮釋資料規格，讓EPUB可以經由製作者或者第三方認證，確保符合WCAG的哪一等級（A等級或者AA等級）；以及是否合乎EPUB可及性規格（目前為1.1版）。可以在<code>metadata</code>中以<code>meta</code>元素特性<code>dcterms:conformsTo</code>來宣告符合哪一等級的規格。</p>
 
 <p>範例為：</p>
 
@@ -27,7 +27,7 @@
       &lt;meta 
           property="dcterms:conformsTo"
           id="conf"&gt;
-         EPUB-A11Y-11_WCAG-21-AA
+         EPUB Accessibility 1.1 - WCAG 2.1 Level AA
       &lt;/meta&gt;
       …
    &lt;/metadata&gt;
@@ -39,12 +39,15 @@
 <p>符合的規格如下：</p>
 
 <ul>
-<li><p>EPUB-A11Y-11_WCAG-20-A</p></li>
-<li><p>EPUB-A11Y-11_WCAG-20-AA</p></li>
-<li><p>EPUB-A11Y-11_WCAG-20-AAA</p></li>
-<li><p>EPUB-A11Y-11_WCAG-21-A</p></li>
-<li><p>EPUB-A11Y-11_WCAG-21-AA</p></li>
-<li><p>EPUB-A11Y-11_WCAG-21-AAA</p></li>
+<li><p>EPUB Accessibility 1.1 - WCAG 2.0 Level A</p></li>
+<li><p>EPUB Accessibility 1.1 - WCAG 2.0 Level AA</p></li>
+<li><p>EPUB Accessibility 1.1 - WCAG 2.0 Level AAA</p></li>
+<li><p>EPUB Accessibility 1.1 - WCAG 2.1 Level A</p></li>
+<li><p>EPUB Accessibility 1.1 - WCAG 2.1 Level AA</p></li>
+<li><p>EPUB Accessibility 1.1 - WCAG 2.1 Level AAA</p></li>
+<li><p>EPUB Accessibility 1.1 - WCAG 2.2 Level A</p></li>
+<li><p>EPUB Accessibility 1.1 - WCAG 2.2 Level AA</p></li>
+<li><p>EPUB Accessibility 1.1 - WCAG 2.2 Level AAA</p></li>
 </ul>
 
 <h3 id="toc_index_3">認證者資訊</h3>
@@ -58,12 +61,12 @@
   &lt;meta
       property="dcterms:conformsTo"
       id="conf"&gt;
-     EPUB-A11Y-11_WCAG-21-AA
+     EPUB Accessibility 1.1 - WCAG 2.1 Level AA
   &lt;/meta&gt;
   &lt;meta
       property="a11y:certifiedBy"
       refines="#conf"&gt;
-     Acme Publishing Inc.
+     評量者或者組織的名字
   &lt;/meta&gt;
   …
 &lt;/metadata&gt;
@@ -75,7 +78,7 @@
 <pre><code><br/>&lt;meta
     property="a11y:certifiedBy"
     id="certifier"&gt;
-   EPUB Accessibility Evaluator
+   評量者或者組織的名字
 &lt;/meta&gt;
 &lt;meta
     property="dcterms:date"
@@ -85,23 +88,23 @@
 
 </code></pre>
 
-<p>若提供認證標章或者數位憑證，可以使用<code>a11y:certifierCredential</code>來產生關聯，範例為：</p>
+<p>若該組織另提供認證標章，可以使用<code>a11y:certifierCredential</code>來產生關聯，範例為：</p>
 
 <pre><code><br/>&lt;meta
     property="dcterms:conformsTo"
     id="conf"&gt;
-   EPUB-A11Y-11_WCAG-21-AA
+   EPUB Accessibility 1.1 - WCAG 2.1 Level AA
 &lt;/meta&gt;
 &lt;meta
     property="a11y:certifiedBy"
     refines="#conf"
     id="certifier"&gt;
-   EPUB Accessibility Evaluator
+   評量者或者組織的名字
 &lt;/meta&gt;
 &lt;meta
     property="a11y:certifierCredential"
     refines="#certifier"&gt;
-   A+ Accessibility Rating
+   台灣電子書無障礙標章AA+
 &lt;/meta&gt;
 
 </code></pre>
@@ -111,18 +114,18 @@
 <pre><code><br/>&lt;meta
     property="dcterms:conformsTo"
     id="conf"&gt;
-   EPUB-A11Y-11_WCAG-21-AA
+   EPUB Accessibility 1.1 - WCAG 2.1 Level AA
 &lt;/meta&gt;
 &lt;meta
     property="a11y:certifiedBy"
     refines="#conf"
     id="certifier"&gt;
-   EPUB Accessibility Evaluator
+   評量者或者組織的名字
 &lt;/meta&gt;
 &lt;link
     rel="a11y:certifierReport"
     refines="#certifier"
-    href="http://www.example.com/a11y/report/9780000000001"/&gt;
+    href="http://www.dpublishing.org.tw/a11y/report/1"/&gt;
 
 </code></pre>
 </div>

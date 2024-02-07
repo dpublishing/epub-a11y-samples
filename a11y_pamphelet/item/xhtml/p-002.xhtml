@@ -15,33 +15,34 @@
 <div class="main">
         <h2 id="toc_index_1">無障礙包裝詮釋資料</h2>
 
-<p>EPUB電子書如果要符合EPUB無障礙輔助性1.1規格的話，在包裝文件（即.opf檔案）中的<code>&lt;metadata&gt;</code> 中，以<code>&lt;meta&gt;</code>標籤加入以下四項特性：</p>
+<p>EPUB電子書如果要符合EPUB可及性1.1規格的話，在包裝文件（即.opf檔案）中的<code>&lt;metadata&gt;</code> 中，以<code>&lt;meta&gt;</code>標籤加入以下三項特性：</p>
 
 <ul>
 <li><code>accessMode</code> （存取模式）</li>
 <li><code>accessibilityFeature</code> （無障礙輔助功能）</li>
 <li><code>accessibilityHazard</code> （無障礙輔助危害）</li>
-<li><code>accessibilitySummary</code> （無障礙輔助摘要）</li>
 </ul>
 
-<p>以下資料為選擇性：</p>
+<p>以下兩項特性為選擇性：</p>
 
 <ul>
+<li><code>accessibilitySummary</code> （無障礙輔助摘要）</li>
 <li><code>accessModeSufficient</code> （充要存取模式）</li>
 </ul>
 
 <p>以下為各特性的說明與範例</p>
 
-<h3 id="toc_index_2">accessMode （存取模式）</h3>
+<h3 id="toc_index_2">accessMode （感知模式）</h3>
 
-<p>存取模式為這本電子書，需要人類何種感知模式才能夠閱讀，全部的值位於<a href="https://schema.org/accessMode">schema.org</a>。<br/>
+<p>感知模式為這本電子書，需要人類何種感知模式才能夠閱讀，全部的值位於<a href="https://schema.org/accessMode">schema.org</a>。<br/>
 以下為代表性的值：</p>
 
 <ul>
-<li><code>textual</code>（文字）</li>
-<li><code>visual</code>（視覺）</li>
-<li><code>auditory</code>（聽覺）</li>
-<li><code>tactile</code>（觸覺）</li>
+<li><code>textual</code>（文字）：<br />如果內容全都是圖片，或把文字做成圖片，如漫畫繪本，則不是。</li>
+<li><code>visual</code>（視覺）：<br />書中有圖片或影片時就是；但圖片用於裝飾則不是。</li>
+<li><code>auditory</code>（聲音）：<br />如果書中有聲音或影片就是；但不影響理解則不是。
+</li>
+<li><code>tactile</code>（觸覺）：<br />只有在使用Unicode點字字符或下載觸覺圖片物件時才是。</li>
 </ul>
 
 <p>請單純由內容性質來進行判斷，假設一本完全由文字構成的小說，雖然可以透過文字轉換語音來讀出，但請使用<code>textual</code>。<code>auditory</code>請在書中有聲音檔案或者影片裡有聲音時才使用。</p>
@@ -61,18 +62,9 @@
 
 </code></pre>
 
-<h3 id="toc_index_3">accessibilityFeature （無障礙輔助功能）</h3>
+<h3 id="toc_index_3">accessibilityFeature （無障礙功能）</h3>
 
-<p>無障礙輔助功能為這本電子書內具備何種無障礙輔助功能，全部的值位於<a href="https://www.w3.org/2021/a11y-discov-vocab/latest/#accessibilityFeature-vocabulary">Schema.org Accessibility Properties for Discoverability Vocabulary</a>。<br/>
-以下為代表性的值：</p>
-
-<ul>
-<li><p><code>structuralNavigation</code>（結構性導覽）：在目錄中包含了該作品所有的標題、並且正確反映了文件結構，同時准許輔助科技進行導覽，可使用該值。</p></li>
-<li><p><code>synchronizedAudioText</code>（聲音與文字同步）：若EPUB使用了媒體覆蓋（Media Overlay）技術，可使用該值。</p></li>
-<li><p><code>alternativeText</code>（替代文字）：書中各圖片的<code>&lt;img&gt;</code>標籤都具備<code>alt</code>屬性並且有適當的替代文字，可使用該值。</p></li>
-<li><p><code>captions</code>（字幕）：影音內容若有同步字幕，可使用該值。</p></li>
-<li><p><code>none</code>（無）：書中未使用輔助技術時，需使用該值。</p></li>
-</ul>
+<p>無障礙輔助功能為這本電子書內具備何種無障礙輔助功能，全部的值位於<a href="https://www.w3.org/2021/a11y-discov-vocab/latest/#accessibilityFeature-vocabulary">Schema.org Accessibility Properties for Discoverability Vocabulary</a>。可參見〈<a href="https://github.com/dpublishing/epub-specs-tc/tree/master/epub33_2023/DAISY無障礙功能說明範本">DAISY無障礙功能說明範本</a>〉對各種無障礙功能的說明。</p>
 
 <p>範例為：</p>
 
@@ -83,25 +75,43 @@
 
 </code></pre>
 
-<h3 id="toc_index_4">accessibilityHazard （無障礙輔助危害）</h3>
+<h3 id="toc_index_4">accessibilityHazard （無障礙危害）</h3>
 
 <p>無障礙輔助危害為這本電子書內具備何種可能危害，全部的值如下：</p>
 
 <ul>
-<li><p><code>flashing</code>（閃爍）：影片或者動畫中包括一秒超過三下的閃爍。</p></li>
-<li><p><code>motion simulation</code>（動態模擬）：使用<code>canvas</code>或者CSS進行描繪或者捲動。</p></li>
-<li><p><code>sound</code>（聲響）：突然改變音量或者太大聲的表現。</p></li>
-<li><p><code>none</code>（無）：沒有以上三者危害時，需要使用此值。</p></li>
-<li><p><code>unknown</code>（不確定）：不知道是否有危害時，使用此值。</p></li>
+<li><p><code>flashing</code>（閃爍）：<br />影片或者書中互動特效包括一秒超過三下的閃爍，就會造成閃光危害。 會使對光敏感者感到頭痛或者筋攣。</p></li>
+<li><p><code>motion simulation</code>（動態模擬）：<br />若書中有影片，包括如第三人稱射擊遊戲或者3D場景模擬動作，就會造成動作模擬危害，會使人感到頭痛或者噁心。
+</p></li>
+<li><p><code>sound</code>（聲響）：<br /><em>只要書中包含聲音，就會造成聲音危害。</em>可能有人會因特定聲響、突然的大聲或者特定音樂與詞彙而筋攣。</p></li>
+<li><p><code>none</code>（無）：<br />沒有以上三者危害時，需要使用此值。</p></li>
+<li><p><code>unknown</code>（不確定）：<br />作為臨時值，製作過程中素材尚未到齊時使用，正式發行時不得使用此值。</p></li>
 </ul>
 
 <p>由於危害僅有三種，所以一般沒有任何影音內容和動態的電子書，都屬於<code>none</code>。</p>
 
-<p>範例為：</p>
+<p>一本有加入朗讀聲音的小說，範例為：</p>
 
 <pre><code><br/>&lt;meta
     property="schema:accessibilityHazard"&gt;
-   flashing
+   noFlashingHazard
+&lt;/meta&gt;
+&lt;meta
+    property="schema:accessibilityHazard"&gt;
+   MotionSimulation
+&lt;/meta&gt;
+&lt;meta
+    property="schema:accessibilityHazard"&gt;
+   sound
+&lt;/meta&gt;
+
+</code></pre>
+
+<p>一本遊戲攻略本，內含第一人稱射擊影片，包含閃光彈及槍彈聲，範例為：</p>
+
+<pre><code><br/>&lt;meta
+    property="schema:accessibilityHazard"&gt;
+   Flashing
 &lt;/meta&gt;
 &lt;meta
     property="schema:accessibilityHazard"&gt;
@@ -109,14 +119,14 @@
 &lt;/meta&gt;
 &lt;meta
     property="schema:accessibilityHazard"&gt;
-   noSoundHazard
+   sound
 &lt;/meta&gt;
 
 </code></pre>
 
-<h3 id="toc_index_5">accessibilitySummary （無障礙輔助摘要）</h3>
+<h3 id="toc_index_5">accessibilitySummary （無障礙摘要）</h3>
 
-<p>無障礙輔助摘要為給人閱讀的描述性文字，由製作者填入注意事項。若有不同語言時，請使用分開的<code>&lt;meta&gt;</code>標籤，配合<code>xml:lang</code>屬性來區分語言</p>
+<p>無障礙輔助摘要為給人閱讀的描述性文字，由製作者填入注意事項。若有不同語言時，請使用分開的<code>&lt;meta&gt;</code>標籤，配合<code>xml:lang</code>屬性來區分語言。圖書館電子書服務與零售平台可以把這段文字顯示在借閱/購買頁面上來提供細節。</p>
 
 <p>範例為：</p>
 
@@ -129,13 +139,34 @@
 
 </code></pre>
 
-<h3 id="toc_index_6">accessModeSufficient （充要存取模式）</h3>
+<h3 id="toc_index_6">accessModeSufficient （充要感知模式）</h3>
 
 <p>充要存取模式和存取模式不同之處，存取模式為內容的本質，充要存取模式則是在有輔助技術協助下，需要怎麼樣的組合或者單一模式來讀內容。</p>
 
 <p>例如一本有圖片的文字書，其充要存取模式為<code>textual, visual</code>，同時所有圖片都有替代文字，所以單純靠<code>textual</code>也能夠閱讀。</p>
 
-<p>範例為（可推論出兩者不同）：</p>
+<p><br /></p>
+
+<p>範例：一本文字小說，包含以圖片製作的人物介紹，但有提供替代文字。所以充要感知模式為textual，大多數人都可以藉由輔助科技閱讀。
+</p>
+
+<pre><code><br/>&lt;meta
+    property="schema:accessMode"&gt;
+   textual
+&lt;/meta&gt;
+&lt;meta
+    property="schema:accessMode"&gt;
+   visual
+&lt;/meta&gt;
+&lt;meta
+    property="schema:accessModeSufficient"&gt;
+   textual
+&lt;/meta&gt;
+
+</code></pre>
+
+<p>範例：一本推理文字小說，包含謀殺現場平面圖，沒有替代文字。 所以充要感知模式為textual與visual，視覺障礙者可能難以理解。
+</p>
 
 <pre><code><br/>&lt;meta
     property="schema:accessMode"&gt;
@@ -148,10 +179,6 @@
 &lt;meta
     property="schema:accessModeSufficient"&gt;
    textual,visual
-&lt;/meta&gt;
-&lt;meta
-    property="schema:accessModeSufficient"&gt;
-   textual
 &lt;/meta&gt;
 
 </code></pre>
