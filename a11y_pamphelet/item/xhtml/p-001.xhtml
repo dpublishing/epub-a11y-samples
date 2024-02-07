@@ -8,7 +8,7 @@
 >
 <head>
 <meta charset="UTF-8"/>
-<title>EPUB無障礙輔助性讀本兼範本</title>
+<title>EPUB可及性讀本兼範本</title>
 <link rel="stylesheet" type="text/css" href="../style/book-style.css"/>
 </head>
 <body class="p-text">
@@ -30,11 +30,11 @@
 <p>制定網頁技術的國際組織W3C成立於1994年，而在1996年秋季時<a id="fnref_2" href="#fn_2" rel="footnote" class="noteref" epub:type="noteref" role="doc-noteref">1</a>，就已成為W3C的計畫之一，網頁可及性促進會（Web Accessibility initiative, WAI）現在依然持續運作。主要推動兩項標準：</p>
 
 <ul>
-<li><p>網頁內容可及性指引（Web Content Accessibility Guidelines, WCAG）：供「內容網頁」使用，提供無障礙、人人都可以直接或透過輔助科技使用的內容。目前版本為<a href="https://www.w3.org/TR/WCAG21/">2.1版</a>，正在進行<a href="https://www.w3.org/TR/WCAG22/">2.2版</a>的改版作業。</p></li>
+<li><p>網頁內容可及性指引（Web Content Accessibility Guidelines, WCAG）：供「內容網頁」使用，提供無障礙、人人都可以直接或透過輔助科技使用的內容。目前版本為<a href="https://www.w3.org/TR/WCAG21/">2.1版</a>，正在進行<a href="https://www.w3.org/TR/WCAG22/">2.2版</a>的改版作業。（已於2023年成為推薦標準）</p></li>
 <li><p>無障礙多樣化網際網路應用程式（Accessible Rich Internet Applications, ARIA）：網頁不僅是「內容網頁」，現在大多數網頁都如應用程式可以互動運作，就需要更進一步的標準，ARIA為HTML元素提供了角色、特性、狀態，使輔助科技能夠進一步地協助使用者操作。目前版本為<a href="https://www.w3.org/TR/wai-aria-1.1/">1.1版</a>。</p></li>
 </ul>
 
-<p>這兩項標準是供網頁所使用。台灣過往由行政院研考會，後來國發會改制後，將網頁可及性業務交給了國家通訊傳播委員會（NCC），維護與WCAG同步的「<a href="https://accessibility.ncc.gov.tw/Accessible/Category/68/1">網站可及性規範</a>」。</p>
+<p>這兩項標準是供網頁所使用。台灣過往由行政院研考會，後來國發會改制後，將網頁可及性業務交給了國家通訊傳播委員會（NCC），維護與WCAG同步的「網站可及性規範」。（目前已移交至<a href="https://accessibility.moda.gov.tw">數位發展部</a>）</p>
 
 <p>電子書則有些不同。</p>
 
@@ -81,11 +81,11 @@
 
 <p>所以EPUB格式電子書為了合乎該法案，除了基本上內容符合WCAG的A等級至AA等級外，還需要符合一些額外專屬於EPUB格式的規定。同時，為了介接販售網站，將是否合規以及具有哪些無障礙輔助功能得以明示（無論在電子書店的產品頁上，還是圖書館的借閱頁面上），需要一份無障礙輔助性的詮釋資料（Accessibility metadata）來進行宣告。</p>
 
-<p>同時，既有的，上述特化的EPUB檔案，可能不符合通用的無障礙輔助性規定，但對特定族群做了最佳化，也該透過這方式宣告。</p>
+<p>同時，既有的，上述特化的EPUB檔案，可能不符合通用的無障礙輔助性規定，但對特定族群做了最適化，也該透過這方式宣告。</p>
 
 <h3 id="toc_index_6">W3C的無障礙輔助性規格</h3>
 
-<p>無障礙輔助性對EPUB而言，一向是重要的功能，在IDPF時期就已經有相當多的輔助規格作為參考。而在IDPF合併到W3C時，也有一份會員提案的文件<a href="https://dpublishing.github.io/epub-specs-tc/epub32/epub-accessibility.html">EPUB可及性1.0</a>。然而隨著歐盟無障礙法的通過，這份文件上的內容就因適法需求而有強制性，所以改版到<a href="https://dpublishing.github.io/epub-a11y-tc/epub-a11y-11.html">1.1版</a>時成為正式的W3C規格。</p>
+<p>無障礙輔助性對EPUB而言，一向是重要的功能，在IDPF時期就已經有相當多的輔助規格作為參考。而在IDPF合併到W3C時，也有一份會員提案的文件<a href="https://dpublishing.github.io/epub-specs-tc/epub32/epub-accessibility.html">EPUB可及性1.0</a>。然而隨著歐盟無障礙法的通過，這份文件上的內容就因適法需求而有強制性，所以改版到<a href="https://dpublishing.github.io/epub-specs-tc/epub33_2023/EPUB_update/EPUBa11y11.html">1.1版</a>時成為正式的W3C規格。（已於2023年成為推薦標準）</p>
 
 <p>那麼，主要要求哪些事情呢？</p>
 
@@ -99,7 +99,7 @@
 
 <p>本規格也提供了認證相關的詮釋資料，出版商可以將書給第三方或者自行進行無障礙認證，將符合的規格與等級、認證方的資料包含在書中，以確保公信。</p>
 
-<p>前述由DAISY而來的特化無障礙數位內容，這裡稱為「最佳化（Optimized）的出版品」。是針對特殊需求來做最佳化，但反而無法達到規格的規定。所以需要另外註明這些資訊。最後針對遞送平台，如圖書館和電子書店提出要求；以及一些隱私和安全考量。</p>
+<p>前述由DAISY而來的特化無障礙數位內容，這裡稱為「最適化（Optimized）的出版品」。是針對特殊需求來做到最適宜使用，但反而無法達到規格的規定。所以需要另外註明這些資訊。最後針對遞送平台，如圖書館和電子書店提出要求；以及一些隱私和安全考量。</p>
 
 <p>以上是EPUB可及性規格的內容。同時還有一些隨附的文件，說明如下：</p>
 
@@ -109,7 +109,7 @@
 <li><a href="https://dpublishing.github.io/epub-a11y-tc/epub-a11y-eaa-mapping.html">EPUB可及性與歐盟無障礙法之對應關係</a>：針對歐盟無障礙法電子書部分逐條說明如何對應。</li>
 </ul>
 
-<p>此外，針對較難提供無障礙輔助的固定版面EPUB，工作小組也起草了一份「<a href="https://dpublishing.github.io/epub-a11y-tc/ED-epub-fxl-a11y-20211214.html">EPUB Fixed Layout可及性</a>」以做為未來的指引。</p>
+<p>此外，針對較難提供無障礙輔助的固定版面EPUB，工作小組也起草了一份「<a href="https://dpublishing.github.io/epub-specs-tc/epub33_2023/EPUB_fxl_a11y/epub_fxl_a11y.html">EPUB固定版面可及性</a>」以做為未來的指引。</p>
 
 <p>目前的EPUB在內容上若能符合WCAG A等級，並且加可及性規格指定的詮釋資料，大致上就能合乎規定。</p>
 
@@ -129,7 +129,7 @@
 
 <p>如同前述，目前台灣是由NCC主管此項業務，並且委託中華民國資訊軟體協會（CISA）執行維護、教學、檢測工具等執行工作，跟隨著WCAG的改版維護網站無<a href="https://accessibility.ncc.gov.tw/Accessible/Guide/68">障礙規範中文版本</a>。目前香港政府資訊科技總監辦公室也有維護一份繁體版本的<a href="https://www.ogcio.gov.hk/tc/our_work/community/web_mobileapp_accessibility/promulgating_resources/handbook/">無障礙網頁手冊</a>。從標準化的角度來看，W3C希望世界各國的政府組織也能加入，並且以會員提送各種語言的<a href="https://www.w3.org/WAI/standards-guidelines/wcag/translations/">正式翻譯</a>（<a href="https://www.w3.org/Translations/WCAG21-zh/">2.1簡體版本</a>由W3C北航辦公室以及浙江大學協同翻譯，繁體版本則無單位提供）。</p>
 
-<p>目前數位發展部已三讀通過，並且將此項業務整合到「數位包容」領域下面。未來若能由政府領銜加入並聘請專家直接參與WAI的會議，相信更能讓我們和國際並行並確保地區語言的獨特需求能被滿足，與國際接軌。</p>
+<p>目前數位發展部已三讀通過，並且將此項業務整合到「數位包容」領域下面。未來若能由政府領銜加入並聘請專家直接參與WAI的會議，相信更能讓我們和國際並行並確保地區語言的獨特需求能被滿足，與國際接軌。（數位發展部已於2022年加入W3C，並且於2024年開始提交正體中文WCAG 2.1正式翻譯作業）</p>
 
 <p>日本在過去十年總務省專案以及W3C慶應辦公室的推動下，完成了日文（也包含中文）的直排CSS規格制定。我國也由<a href="https://github.com/bobbytung">Bobby（董福興）</a>和眾多專家群於COVID-19爆發前在京都開會，提出了「當使用日文Ruby標注（也包含台灣注音與中國的拼音）時，文字轉換語音引擎該如何發音？」的問題，這兩年以來在村田真等專家的協調參與之下，已經有了初步的技術解決方案。</p>
 

@@ -11,7 +11,7 @@
 <metadata xmlns:dc="http://purl.org/dc/elements/1.1/">
 
 <!-- 作品名 -->
-<dc:title id="title">EPUB無障礙輔助性讀本兼範本</dc:title>
+<dc:title id="title">EPUB可及性讀本兼範本</dc:title>
 
 <!-- 作者名 -->
 <dc:creator id="creator01">董福興</dc:creator>
@@ -47,7 +47,7 @@
 <!-- 內容由文字與圖片構成，所以充要存取模式為textual, visual，圖片擁有替代文字，所以也可以textual閱讀 -->
     <meta property="schema:accessModeSufficient">textual,visual</meta>
     <meta property="schema:accessModeSufficient">textual</meta>
-<!-- 無障礙認證資料，符合EPUB無障礙輔助性1.1規格，以及WCAG2.1 A等級 -->
+<!-- 無障礙認證資料，符合EPUB可及性1.1規格，以及WCAG2.1 A等級 -->
     <meta property="dcterms:conformsTo" id="conf">EPUB-A11Y-11_WCAG-21-A</meta>
 <!-- 由台灣數位出版聯盟所進行無障礙輔助性檢查 -->
     <meta property="a11y:certifiedBy" id="certifier">Taiwan Digital Publishing Forum</meta>
